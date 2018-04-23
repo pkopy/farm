@@ -8,15 +8,16 @@ public class Main {
 
         MenuBarn menuBarn = new MenuBarn();
         Init init = new Init();
-        Barn barn = new Barn("Adam");
-        barn.addBarn(barn);
+//        Barn barn = new Barn();
+        init.initSystem();
+
         Animal animal = new Animal("Cow",3,true);
         Animal animal1 = new Animal("Cow",2,false);
-        barn.addAnimal(animal);
-        barn.addAnimal(animal1);
-        System.out.println(barn.getAnimals());
-        System.out.println(barn.getBarns());
-        System.out.println(barn.getIdBarn());
+//        barn.addAnimal(animal);
+//        barn.addAnimal(animal1);
+//        System.out.println(barn.getAnimals());
+//        System.out.println(barn.getBarns());
+//        System.out.println(barn.getIdBarn());
 
 //        String test = "";
 //        File file = new File("C:\\Bootcamp\\babcia.txt");
@@ -27,7 +28,6 @@ public class Main {
 //        }
 //
 //        System.out.println(test);
-        init.initSystem();
 
 
     }

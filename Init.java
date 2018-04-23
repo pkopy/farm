@@ -1,14 +1,19 @@
 package farm;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Init {
     private Scanner scanner;
     private MenuBarn menuBarn;
+    private static String farmerName;
+    private static List<Barn> barns;
 
     public Init() {
         scanner = new Scanner(System.in);
         menuBarn = new MenuBarn();
+        barns = new ArrayList<>();
     }
 
     public void initSystem() {
@@ -16,6 +21,7 @@ public class Init {
         if (Utils.isExist("C:\\Farm")) {
             System.out.println("What's Your name");
             String farmerName = scanner.nextLine();
+            this.farmerName = farmerName;
             checkFarmer(farmerName);
 //            Utils.createNewCatalog(farmerName);
         } else {
@@ -32,7 +38,7 @@ public class Init {
 
         } else if(Utils.isExist(path)) {
             System.out.println("Welcome " + farmerName);
-            String[] files =Utils.showFiles();
+            String[] files = Utils.showFiles();
             for (String file : files) {
                 System.out.println(file);
             }
@@ -50,9 +56,20 @@ public class Init {
         if(yesNo.equalsIgnoreCase("y")) {
             Utils.createNewCatalog(path);
         }else {
-
             return;
         }
 
+    }
+
+    public static String getFarmerName() {
+        return farmerName;
+    }
+
+    public static List<Barn> getBarns() {
+        return barns;
+    }
+
+    public static void setBarns(List<Barn> barns) {
+        Init.barns = barns;
     }
 }

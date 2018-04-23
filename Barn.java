@@ -1,5 +1,6 @@
 package farm;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,18 +8,25 @@ public class Barn {
     private String name;
     private int idBarn;
     private List<Animal> animals;
-    private List<Barn> barns;
 
-    public Barn(String name) {
+
+
+    public Barn() {
         this.name = name;
-        barns = new ArrayList<>();
         animals = new ArrayList<>();
-        idBarn = barns.size();
+        idBarn = Init.getBarns().size();
+        System.out.println(idBarn);
+        //
     }
 
-    public void addBarn(Barn barn) {
+    public static void addBarn(Barn barn) throws IOException{
 
-        barns.add(barn);
+        Init.getBarns().add(barn);
+
+        String nameOfFile = "C:\\Farm\\"+ Init.getFarmerName() +"\\" + "barn" + barn.getIdBarn() + ".txt";
+        System.out.println("Nazwa: " + nameOfFile);
+        Utils.createNewFile(nameOfFile);
+        Utils.saveToFile(nameOfFile, barn.animals.toString());
 
     }
 
@@ -31,14 +39,15 @@ public class Barn {
         return idBarn;
     }
 
-
-    public List<Barn> getBarns() {
-        return barns;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setBarns(List<Barn> barns) {
-        this.barns = barns;
+    public void setIdBarn(int idBarn) {
+        this.idBarn = idBarn;
     }
+
+
 
     public List<Animal> getAnimals() {
         return animals;

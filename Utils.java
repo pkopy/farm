@@ -1,9 +1,6 @@
 package farm;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class Utils {
     private static File file;
@@ -46,4 +43,11 @@ public class Utils {
     public static String[] showFiles() {
         return file.list();
     }
+
+    public static void saveToFile(String path, String word) throws IOException{
+        FileOutputStream fileOutputStream = new FileOutputStream(path);
+        fileOutputStream.write(word.getBytes());
+    }
+
+
 }
