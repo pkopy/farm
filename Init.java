@@ -91,6 +91,7 @@ public class Init {
     public void createNewFarm(String path, String yesNo) {
         if(yesNo.equalsIgnoreCase("y")) {
             Utils.createNewCatalog(path);
+            menuBarn.start();
         }else {
             return;
         }
