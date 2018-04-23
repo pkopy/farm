@@ -9,7 +9,6 @@ public class Utils {
         File file = new File(pathToFile);
         file.createNewFile();
 
-        System.out.println();
     }
 
     public static void createNewCatalog(String pathToCatalog) {

@@ -42,6 +42,7 @@ public class MenuBarn {
                 break;
             }
             case "2": {
+                System.out.println("Choose barn:");
                 barns = Init.getBarns();
                 printBarns();
                 int numberBarn = Integer.valueOf(scanner.nextLine());
@@ -88,8 +89,11 @@ public class MenuBarn {
 
     public void printBarns() {
 
+        int count = 0;
+
         for (Barn barn : barns) {
-            System.out.println("Barn no: " + barn.getIdBarn());
+            System.out.println(count + ". - Barn no: " + barn.getIdBarn()  );
+            count++;
         }
 
 

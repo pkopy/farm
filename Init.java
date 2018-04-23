@@ -43,11 +43,11 @@ public class Init {
             String[] files = Utils.showFiles();
             File fileToRead;
             for (String file : files) {
-                 fileToRead = new File(path + "\\" + file);
+                fileToRead = new File(path + "\\" + file);
                 String[] barnInStore = Utils.readFileContent(fileToRead).split("/");
-                System.out.println(barnInStore.length);
-                    String[] animalInFile = barnInStore[2].split(",");
-                    Barn barn = new Barn();
+                String[] animalInFile = barnInStore[2].split(",");
+                Barn barn = new Barn();
+
                 if(barnInStore.length > 1 && animalInFile.length > 1) {
 
 
@@ -70,8 +70,6 @@ public class Init {
                 }else{
                     barn.setName(barnInStore[0]);
                     barn.setIdBarn(Integer.valueOf(barnInStore[1]));
-
-
                     barn.addBarn(barn);
                 }
 
