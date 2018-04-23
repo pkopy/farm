@@ -16,18 +16,44 @@ public class Animal {
 //        birthday = LocalDateTime.of(year, month, day, 0, 0);
     }
 
+    public Animal(){
+
+    }
+
+    public String getSpecies() {
+        return species;
+    }
+
+    public void setSpecies(String species) {
+        this.species = species;
+    }
+
+    public int getAnimalId() {
+        return animalId;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public boolean isGraft() {
+        return isGraft;
+    }
+
+    public void setGraft(boolean graft) {
+        isGraft = graft;
+    }
+
     public void setAnimalId(int animalId) {
         this.animalId = animalId;
     }
 
     @Override
     public String toString() {
-        return "Animal{" +
-                "species='" + species + '\'' +
-                ", animalId=" + animalId +
-                ", age=" + age +
-                ", isGraft=" + isGraft +
-                ", birthday=" + birthday +
-                '}';
+        return species + ':' + animalId + ':' +  age + ':'  + isGraft;
     }
 }

@@ -9,7 +9,11 @@ public class Main {
         MenuBarn menuBarn = new MenuBarn();
         Init init = new Init();
 //        Barn barn = new Barn();
-        init.initSystem();
+        try {
+            init.initSystem();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         Animal animal = new Animal("Cow",3,true);
         Animal animal1 = new Animal("Cow",2,false);

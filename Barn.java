@@ -15,20 +15,20 @@ public class Barn {
         this.name = name;
         animals = new ArrayList<>();
         idBarn = Init.getBarns().size();
-        System.out.println(idBarn);
-        //
+
     }
 
-    public static void addBarn(Barn barn) throws IOException{
+    public void addBarn(Barn barn) throws IOException{
 
         Init.getBarns().add(barn);
-
         String nameOfFile = "C:\\Farm\\"+ Init.getFarmerName() +"\\" + "barn" + barn.getIdBarn() + ".txt";
-        System.out.println("Nazwa: " + nameOfFile);
+//        System.out.println("Nazwa: " + nameOfFile);
         Utils.createNewFile(nameOfFile);
-        Utils.saveToFile(nameOfFile, barn.animals.toString());
+        Utils.saveToFile(nameOfFile, barn.toString());
 
     }
+
+
 
     public void addAnimal(Animal animal){
         animal.setAnimalId(animals.size());
@@ -55,10 +55,7 @@ public class Barn {
 
     @Override
     public String toString() {
-        return "Barn{" +
-                "name='" + name + '\'' +
-                ", idBarn=" + idBarn +
-                ", animals=" + animals +
-                '}';
+        return
+                name + '/' + idBarn + '/' +  animals;
     }
 }

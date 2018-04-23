@@ -1,5 +1,7 @@
 package farm;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -16,7 +18,7 @@ public class Init {
         barns = new ArrayList<>();
     }
 
-    public void initSystem() {
+    public void initSystem() throws IOException{
         System.out.println("Farm ver 1.0");
         if (Utils.isExist("C:\\Farm")) {
             System.out.println("What's Your name");
@@ -29,10 +31,10 @@ public class Init {
         }
     }
 
-    public void checkFarmer(String farmerName) {
-        System.out.println(farmerName);
+    public void checkFarmer(String farmerName) throws IOException{
+
         String path = "C:\\Farm\\" + farmerName;
-        System.out.println(path);
+
         if (farmerName.length() == 0) {
             initSystem();
 
@@ -40,8 +42,30 @@ public class Init {
             System.out.println("Welcome " + farmerName);
             String[] files = Utils.showFiles();
             for (String file : files) {
-                System.out.println(file);
+                File fileToRead = new File(path + "\\" + file);
+                String[] barnInStore = Utils.readFileContent(fileToRead).split("/");
+                String[] animalInFile = barnInStore[2].split(",");
+
+                Barn barn = new Barn();
+                for (String s : animalInFile) {
+                    String[] animalInStore = s.split(":");
+
+                    Animal animal  = new Animal();
+                    animal.setSpecies(animalInStore[0].substring(1));
+                    animal.setAnimalId(Integer.valueOf(animalInStore[1]));
+                    animal.setAge(Integer.valueOf(animalInStore[2]));
+                    animal.setGraft(Boolean.valueOf(animalInStore[3]));
+                    barn.addAnimal(animal);
+                }
+
+                barn.setName(barnInStore[0]);
+                barn.setIdBarn(Integer.valueOf(barnInStore[1]));
+
+
+                barn.addBarn(barn);
+
             }
+
             menuBarn.start();
 
         } else {

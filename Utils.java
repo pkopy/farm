@@ -7,18 +7,18 @@ public class Utils {
 
     public static void createNewFile(String pathToFile) throws IOException {
         file = new File(pathToFile);
-        System.out.println(file.createNewFile());
+        file.createNewFile();
         System.out.println();
     }
 
     public static void createNewCatalog(String pathToCatalog) {
         file = new File(pathToCatalog);
-        System.out.println(file.mkdir());
+        file.mkdir();
     }
 
     public static void deleteFileOrCatalog(String path) {
         file = new File(path);
-        System.out.println(file.delete());
+        file.delete();
     }
 
     public static boolean isExist(String path) {
