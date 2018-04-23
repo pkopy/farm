@@ -62,6 +62,7 @@ public class MenuBarn {
 
             case "4": {
                 System.out.println("Give id of barn");
+                printBarns();
                 int barnId = Integer.valueOf(scanner.nextLine());
                 Barn barn = Init.getBarns().get(barnId);
                 System.out.println(barn.getPath());
