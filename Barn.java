@@ -8,29 +8,29 @@ public class Barn {
     private String name;
     private int idBarn;
     private List<Animal> animals;
-
+    private String path;
 
 
     public Barn() {
         this.name = name;
         animals = new ArrayList<>();
         idBarn = Init.getBarns().size();
+        path = "";
 
     }
 
-    public void addBarn(Barn barn) throws IOException{
+    public void addBarn(Barn barn) throws IOException {
 
         Init.getBarns().add(barn);
-        String nameOfFile = "C:\\Farm\\"+ Init.getFarmerName() +"\\" + "barn" + barn.getIdBarn() + ".txt";
-//        System.out.println("Nazwa: " + nameOfFile);
+        String nameOfFile = "C:\\Farm\\" + Init.getFarmerName() + "\\" + "barn" + barn.getIdBarn() + ".txt";
+        path = nameOfFile;
         Utils.createNewFile(nameOfFile);
         Utils.saveToFile(nameOfFile, barn.toString());
 
     }
 
 
-
-    public void addAnimal(Animal animal){
+    public void addAnimal(Animal animal) {
         animal.setAnimalId(animals.size());
         animals.add(animal);
     }
@@ -48,14 +48,17 @@ public class Barn {
     }
 
 
-
     public List<Animal> getAnimals() {
         return animals;
+    }
+
+    public String getPath() {
+        return path;
     }
 
     @Override
     public String toString() {
         return
-                name + '/' + idBarn + '/' +  animals;
+                name + '/' + idBarn + '/' + animals;
     }
 }

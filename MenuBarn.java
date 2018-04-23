@@ -58,7 +58,21 @@ public class MenuBarn {
                 printBarns();
                 break;
             }
-            
+
+            case "4": {
+                System.out.println("Give id of barn");
+                int barnId = Integer.valueOf(scanner.nextLine());
+                Barn barn = Init.getBarns().get(barnId);
+                System.out.println(barn.getPath());
+                Init.delete(barnId);
+                try {
+                    Utils.deleteFileOrCatalog(barn.getPath());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                break;
+            }
+
         }
     }
 

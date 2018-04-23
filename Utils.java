@@ -6,8 +6,9 @@ public class Utils {
     private static File file;
 
     public static void createNewFile(String pathToFile) throws IOException {
-        file = new File(pathToFile);
+        File file = new File(pathToFile);
         file.createNewFile();
+
         System.out.println();
     }
 
@@ -16,9 +17,16 @@ public class Utils {
         file.mkdir();
     }
 
-    public static void deleteFileOrCatalog(String path) {
+    public static void deleteFileOrCatalog(String path) throws IOException{
         file = new File(path);
+        FileInputStream fileInputStream = new FileInputStream(file);
+        InputStreamReader fileInputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+
+        fileInputStream.close();
+        fileInputStreamReader.close();
+
         file.delete();
+
     }
 
     public static boolean isExist(String path) {
@@ -37,6 +45,9 @@ public class Utils {
             stringBuilder.append((char)read);
         }
 
+        fileInputStream.close();
+        fileInputStreamReader.close();
+
         return stringBuilder.toString();
     }
 
@@ -47,6 +58,7 @@ public class Utils {
     public static void saveToFile(String path, String word) throws IOException{
         FileOutputStream fileOutputStream = new FileOutputStream(path);
         fileOutputStream.write(word.getBytes());
+        fileOutputStream.close();
     }
 
 

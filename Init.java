@@ -9,10 +9,10 @@ import java.util.Scanner;
 public class Init {
     private Scanner scanner;
     private MenuBarn menuBarn;
-    private static String farmerName;
+    private static String  farmerName;
     private static List<Barn> barns;
 
-    public Init() {
+    Init() {
         scanner = new Scanner(System.in);
         menuBarn = new MenuBarn();
         barns = new ArrayList<>();
@@ -31,7 +31,7 @@ public class Init {
         }
     }
 
-    public void checkFarmer(String farmerName) throws IOException{
+    private void checkFarmer(String farmerName) throws IOException{
 
         String path = "C:\\Farm\\" + farmerName;
 
@@ -41,30 +41,44 @@ public class Init {
         } else if(Utils.isExist(path)) {
             System.out.println("Welcome " + farmerName);
             String[] files = Utils.showFiles();
+            File fileToRead;
             for (String file : files) {
-                File fileToRead = new File(path + "\\" + file);
+                 fileToRead = new File(path + "\\" + file);
                 String[] barnInStore = Utils.readFileContent(fileToRead).split("/");
-                String[] animalInFile = barnInStore[2].split(",");
+                System.out.println(barnInStore.length);
+                    String[] animalInFile = barnInStore[2].split(",");
+                    Barn barn = new Barn();
+                if(barnInStore.length > 1 && animalInFile.length > 1) {
 
-                Barn barn = new Barn();
-                for (String s : animalInFile) {
-                    String[] animalInStore = s.split(":");
 
-                    Animal animal  = new Animal();
-                    animal.setSpecies(animalInStore[0].substring(1));
-                    animal.setAnimalId(Integer.valueOf(animalInStore[1]));
-                    animal.setAge(Integer.valueOf(animalInStore[2]));
-                    animal.setGraft(Boolean.valueOf(animalInStore[3]));
-                    barn.addAnimal(animal);
+                    for (String s : animalInFile) {
+                        String[] animalInStore = s.split(":");
+
+                        Animal animal  = new Animal();
+                        animal.setSpecies(animalInStore[0].substring(1));
+                        animal.setAnimalId(Integer.valueOf(animalInStore[1]));
+                        animal.setAge(Integer.valueOf(animalInStore[2]));
+                        animal.setGraft(Boolean.valueOf(animalInStore[3]));
+                        barn.addAnimal(animal);
+                    }
+
+                    barn.setName(barnInStore[0]);
+                    barn.setIdBarn(Integer.valueOf(barnInStore[1]));
+
+
+                    barn.addBarn(barn);
+                }else{
+                    barn.setName(barnInStore[0]);
+                    barn.setIdBarn(Integer.valueOf(barnInStore[1]));
+
+
+                    barn.addBarn(barn);
                 }
 
-                barn.setName(barnInStore[0]);
-                barn.setIdBarn(Integer.valueOf(barnInStore[1]));
 
-
-                barn.addBarn(barn);
 
             }
+
 
             menuBarn.start();
 
@@ -95,5 +109,10 @@ public class Init {
 
     public static void setBarns(List<Barn> barns) {
         Init.barns = barns;
+    }
+
+    public static void delete(int idOfBarn) {
+        Init.barns.remove(idOfBarn);
+
     }
 }
