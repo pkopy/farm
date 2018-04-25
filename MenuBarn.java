@@ -20,6 +20,7 @@ public class MenuBarn {
 
         String answer;
 
+
         do{
             System.out.println("Wybierz opcję: ");
             printChoseList();
@@ -47,11 +48,7 @@ public class MenuBarn {
                 printBarns();
                 int numberBarn = Integer.valueOf(scanner.nextLine());
                 openBarn(numberBarn);
-
-
                 break;
-
-
             }
             case "3": {
                 barns = Init.getBarns();

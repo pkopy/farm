@@ -61,23 +61,16 @@ public class Init {
                         animal.setGraft(Boolean.valueOf(animalInStore[3]));
                         barn.addAnimal(animal);
                     }
-
                     barn.setName(barnInStore[0]);
                     barn.setIdBarn(Integer.valueOf(barnInStore[1]));
-
-
                     barn.addBarn(barn);
                 }else{
                     barn.setName(barnInStore[0]);
                     barn.setIdBarn(Integer.valueOf(barnInStore[1]));
                     barn.addBarn(barn);
                 }
-
-
-
             }
-
-
+            
             menuBarn.start();
 
         } else {
