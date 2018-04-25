@@ -20,32 +20,19 @@ public class Animal {
 
     }
 
-    public String getSpecies() {
-        return species;
-    }
 
     public void setSpecies(String species) {
         this.species = species;
     }
 
-    public int getAnimalId() {
-        return animalId;
-    }
-
-    public int getAge() {
-        return age;
-    }
 
     public void setAge(int age) {
         this.age = age;
     }
 
-    public boolean isGraft() {
-        return isGraft;
-    }
 
     public void setGraft(boolean graft) {
-        isGraft = graft;
+        this.isGraft = graft;
     }
 
     public void setAnimalId(int animalId) {

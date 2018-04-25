@@ -14,7 +14,12 @@ public class Barn {
     public Barn() {
         this.name = name;
         animals = new ArrayList<>();
-        idBarn = Init.getBarns().size();
+        if(Init.getBarns().size() !=0){
+            idBarn = Init.getBarns().getLast().getIdBarn() + 1;
+
+        }else {
+            idBarn = 1;
+        }
         path = "";
 
     }
