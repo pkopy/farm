@@ -52,6 +52,13 @@ public class Animal {
         this.animalId = animalId;
     }
 
+    public String printAnimal() {
+        return "Species: " + species + "\n" +
+                "ID's animal: " + animalId + "\n" +
+                "Age: " + age + "\n" +
+                "Is graft?: " + isGraft;
+    }
+
     @Override
     public String toString() {
         return species + ':' + animalId + ':' +  age + ':'  + isGraft;

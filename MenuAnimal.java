@@ -24,7 +24,7 @@ public class MenuAnimal {
         String answer;
 
         do{
-            System.out.println("Wybierz opcję: ");
+            System.out.println("\nWybierz opcję: ");
             printChoseList();
             checkAnswer(answer = scanner.nextLine());
 
@@ -51,12 +51,12 @@ public class MenuAnimal {
                 barns = Init.getBarns();
                 System.out.println("Write Id ");
                 Barn barn = barns.get(numberOfBarn);
-                System.out.println(barn.getAnimals().get(Integer.valueOf(scanner.nextLine())));
+                System.out.println(barn.getAnimals().get(Integer.valueOf(scanner.nextLine())).printAnimal());
 
                 break;
             }
             case "3": {
-                System.out.println(Init.getBarns());
+                System.out.println(Init.getBarns().get(numberOfBarn).printAllAnimal());
             }
         }
     }

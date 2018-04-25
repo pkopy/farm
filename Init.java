@@ -41,14 +41,17 @@ public class Init {
         } else if(Utils.isExist(path)) {
             System.out.println("Welcome " + farmerName);
             String[] files = Utils.showFiles();
+
             File fileToRead;
             for (String file : files) {
                 fileToRead = new File(path + "\\" + file);
                 String[] barnInStore = Utils.readFileContent(fileToRead).split("/");
+                System.out.println(barnInStore.length);
+
                 String[] animalInFile = barnInStore[2].split(",");
                 Barn barn = new Barn();
 
-                if(barnInStore.length > 1 && animalInFile.length > 1) {
+                if(animalInFile.length >= 1) {
 
 
                     for (String s : animalInFile) {
@@ -70,7 +73,7 @@ public class Init {
                     barn.addBarn(barn);
                 }
             }
-            
+
             menuBarn.start();
 
         } else {

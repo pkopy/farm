@@ -35,6 +35,15 @@ public class Barn {
         animals.add(animal);
     }
 
+    public String printAllAnimal() {
+        StringBuilder animalsInBarn = new StringBuilder();
+        for (Animal animal : animals) {
+            animalsInBarn.append(animal.printAnimal());
+            animalsInBarn.append("\n-------------------\n");
+        }
+       return animalsInBarn.toString();
+    }
+
     public int getIdBarn() {
         return idBarn;
     }

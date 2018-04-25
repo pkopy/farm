@@ -52,8 +52,12 @@ public class MenuBarn {
             }
             case "3": {
                 barns = Init.getBarns();
-                System.out.println("Your farm:");
-                printBarns();
+                if(barns.size() > 0) {
+                    System.out.println("Your farm:");
+                    printBarns();
+                }else{
+                    System.out.println("You haven`t any barns");
+                }
                 break;
             }
 
