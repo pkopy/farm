@@ -26,14 +26,8 @@ public class Animal {
     public Animal(){
 
     }
-//Add new commit
+//Paweł: usunułem
 
-
-    public String getSpecies() {
-        return species;
-    }
-
-    ////////////////////////
 
     public void setSpecies(String species) {
         this.species = species;
