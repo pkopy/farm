@@ -2,7 +2,9 @@ package farm;
 
 public class NowaKlasa {
 
+    //cena
     int price;
+    //nazwa
     String name;
 
     public NowaKlasa(int price, String name) {
@@ -25,5 +27,5 @@ public class NowaKlasa {
     public void setName(String name) {
         this.name = name;
     }
-    
+
 }
