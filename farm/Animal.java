@@ -2,12 +2,19 @@ package farm;
 
 import java.time.LocalDateTime;
 
+//Krzysiek: moja zmiana
+
 public class Animal {
     private String species;
     private int animalId;
     private int age;
     private boolean isGraft;
     private LocalDateTime birthday;
+
+    //nowa metoda
+    public void meetMe(){
+        System.out.println("To ja!");
+    }
 
     public Animal(String species, int age, boolean isGraft) { //, int year, int month, int day
         this.species = species;
