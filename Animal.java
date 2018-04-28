@@ -19,7 +19,14 @@ public class Animal {
     public Animal(){
 
     }
+//Add new commit
 
+
+    public String getSpecies() {
+        return species;
+    }
+
+    ////////////////////////
 
     public void setSpecies(String species) {
         this.species = species;
