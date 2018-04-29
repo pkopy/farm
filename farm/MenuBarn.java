@@ -77,7 +77,11 @@ public class MenuBarn {
             }
 
             case "5": {
-                System.out.println("Farm whit the most amount of animals: " + Init.maxAnimals() + "\n");
+                if(Init.maxAnimals().getIdBarn() == -1){
+                    System.out.println("You don't have any barns");
+                }else{
+                    System.out.println("Barn whit the most amount of animals is: Barn " + Init.maxAnimals().getIdBarn() + "\n");
+                }
                 break;
             }
 
