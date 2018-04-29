@@ -92,7 +92,9 @@ public class Init {
         }
 
     }
-    public static String maxAnimals(){
+    public static Barn maxAnimals(){
+        Barn nullBarn = new Barn();
+        nullBarn.setIdBarn(-1);
         Barn barn = barns.stream()
                 .reduce((s,s1) -> {
                     if(s1.getAnimals().size()>s.getAnimals().size()){
@@ -101,8 +103,9 @@ public class Init {
                         return s;
                     }
                 })
-                .get();
-        return "Barn no: " + barn.getIdBarn();
+                .orElse(nullBarn);
+
+        return barn;
     }
 
     public void createNewFarm(String path, String yesNo) {
