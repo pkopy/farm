@@ -21,17 +21,17 @@ public class MenuBarn {
         String answer;
 
 
-        do{
+        do {
             System.out.println("Wybierz opcję: ");
             printChoseList();
             checkAnswer(answer = scanner.nextLine());
 
-        }while(!answer.equalsIgnoreCase("exit"));
+        } while (!answer.equalsIgnoreCase("exit"));
     }
 
     private void checkAnswer(String answer) {
 
-        switch(answer) {
+        switch (answer) {
             case "1": {
                 Barn barn = new Barn();
                 try {
@@ -52,10 +52,10 @@ public class MenuBarn {
             }
             case "3": {
                 barns = Init.getBarns();
-                if(barns.size() > 0) {
+                if (barns.size() > 0) {
                     System.out.println("Your farm:");
                     printBarns();
-                }else{
+                } else {
                     System.out.println("You haven`t any barns");
                 }
                 break;
@@ -73,6 +73,11 @@ public class MenuBarn {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                break;
+            }
+
+            case "5": {
+                System.out.println("Farm whit the most amount of animals: " + Init.maxAnimals() + "\n");
                 break;
             }
 
@@ -94,16 +99,12 @@ public class MenuBarn {
         int count = 0;
 
         for (Barn barn : barns) {
-            System.out.println(count + ". - Barn no: " + barn.getIdBarn()  );
+            System.out.println(count + ". - Barn no: " + barn.getIdBarn());
             count++;
         }
 
 
     }
-
-
-
-
 
 
     private void printChoseList() {
@@ -112,7 +113,7 @@ public class MenuBarn {
         System.out.println("2 - choose barn");
         System.out.println("3 - print all barns,");
         System.out.println("4 - delete barn");
-//        System.out.println("5 - zamiana typu binarnego na ósemkowy");
+        System.out.println("5 - find the farm with the most animals");
 //        System.out.println("6 - pierwiastek x z liczby y");
 
     }
