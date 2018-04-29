@@ -15,7 +15,7 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-//Test
+
         Animal animal = new Animal("Cow",3,true);
         Animal animal1 = new Animal("Cow",2,false);
 //        barn.addAnimal(animal);
