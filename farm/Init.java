@@ -58,7 +58,7 @@ public class Init {
                     for (String s : animalInFile) {
                         String[] animalInStore = s.split(":");
                         Animal animal  = new Animal();
-                        animal.setSpecies(animalInStore[0].substring(1));
+                        animal.setSpecies(animalInStore[0].substring(1).toUpperCase());
                         animal.setAnimalId(Integer.valueOf(animalInStore[1]));
                         animal.setAge(Integer.valueOf(animalInStore[2]));
 

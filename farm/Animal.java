@@ -48,10 +48,11 @@ public class Animal {
     }
 
     public String printAnimal() {
+        String graft = isGraft?"YES":"NO";
         return "Species: " + species + "\n" +
                 "ID's animal: " + animalId + "\n" +
                 "Age: " + age + "\n" +
-                "Is graft?: " + isGraft;
+                "Is graft?: " + graft;
     }
 
     @Override

@@ -36,7 +36,7 @@ public class MenuAnimal {
             case "1":{
                 Animal animal = new Animal();
                 System.out.println("Add species");
-                animal.setSpecies(scanner.nextLine());
+                animal.setSpecies(scanner.nextLine().toUpperCase());
                 System.out.println("Add age");
                 animal.setAge(Integer.valueOf(scanner.nextLine()));
                 System.out.println("Is animal graft? Y/N");
