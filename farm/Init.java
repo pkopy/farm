@@ -20,8 +20,9 @@ public class Init {
     }
 
     public void initSystem() throws IOException{
-        System.out.println("Farm ver 1.0");
+
         if (Utils.isExist("C:\\Farm")) {
+            System.out.println("Farm ver 1.0");
             System.out.println("What's Your name");
             String farmerName = scanner.nextLine();
             this.farmerName = farmerName;
@@ -29,6 +30,7 @@ public class Init {
 //            Utils.createNewCatalog(farmerName);
         } else {
             Utils.createNewCatalog("C:\\Farm");
+            initSystem();
         }
 
 
