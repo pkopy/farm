@@ -65,13 +65,22 @@ public class MenuBarn {
                 System.out.println("Give id of barn");
                 printBarns();
                 int barnId = Integer.valueOf(scanner.nextLine());
-                Barn barn = Init.getBarns().get(barnId);
-                System.out.println(barn.getPath());
-                Init.delete(barnId);
-                try {
-                    Utils.deleteFileOrCatalog(barn.getPath());
-                } catch (IOException e) {
-                    e.printStackTrace();
+                if (barnId <= 0 || barnId > Init.getBarns().size()-1){
+                    MenuBarn menuBarn = new MenuBarn();
+
+                    System.out.println("No barn has been removed \n");
+                    menuBarn.start();
+
+                }else {
+                    Barn barn = Init.getBarns().get(barnId - 1);
+                    System.out.println(barn.getPath());
+                    Init.delete(barnId - 1);
+
+                    try {
+                        Utils.deleteFileOrCatalog(barn.getPath());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
                 break;
             }
@@ -91,7 +100,7 @@ public class MenuBarn {
     public void openBarn(int number) {
         System.out.println("Barn no " + number);
         try {
-            menuAnimal.start(number);
+            menuAnimal.start(number - 1);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -100,7 +109,8 @@ public class MenuBarn {
 
     public void printBarns() {
 
-        int count = 0;
+        int count = 1;
+        barns = Init.getBarns();
 
         for (Barn barn : barns) {
             System.out.println(count + ". - Barn no: " + barn.getIdBarn());
