@@ -51,12 +51,11 @@ public class MenuAnimal {
                 System.out.println("Give Id`s animal ");
                 int idAnimal = Integer.valueOf(scanner.nextLine());
 
-                if (barn.getAnimals().size() > 0 || idAnimal < barn.getAnimals().size() - 1) {
+                if (barn.getAnimals().size() > 0 && idAnimal <= barn.getAnimals().size() - 1) {
                     System.out.println(barn.getAnimals().get(idAnimal).printAnimal());
                 } else{
-                    System.out.println("You don`t have any animals");
+                    System.out.println("You don`t have animal with id: " + idAnimal);
                 }
-
                 break;
             }
             case "3": {
