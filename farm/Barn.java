@@ -45,14 +45,14 @@ public class Barn {
         System.out.println(printAllAnimal(sotredAnimal));
     }
 
-    public void findGraftAnimals() {
-        ArrayList<Animal> graftAnimals = new ArrayList<>();
+    public void findVaccinateAnimals() {
+        ArrayList<Animal> vaccinateAnimals = new ArrayList<>();
         for(Animal animal : animals){
-            if(animal.isGraft()) {
-                graftAnimals.add(animal);
+            if(animal.isVaccinate()) {
+                vaccinateAnimals.add(animal);
             }
         }
-        System.out.println(printAllAnimal(graftAnimals));
+        System.out.println(printAllAnimal(vaccinateAnimals));
     }
 
 

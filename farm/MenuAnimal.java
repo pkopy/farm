@@ -46,8 +46,8 @@ public class MenuAnimal {
                 animal.setSpecies(scanner.nextLine().toUpperCase());
                 System.out.println("Add age");
                 animal.setAge(Integer.valueOf(scanner.nextLine()));
-                System.out.println("Is animal graft? Y/N");
-                animal.setGraft(yesNo());
+                System.out.println("Is animal vaccinate? Y/N");
+                animal.setVaccinate(yesNo());
 //                barns = Init.getBarns();
 //                barns.get(numberOfBarn).addAnimal(animal);
                 barn.addAnimal(animal);
@@ -77,7 +77,7 @@ public class MenuAnimal {
                 break;
             }
             case "6": {
-                barn.findGraftAnimals();
+                barn.findVaccinateAnimals();
                 break;
             }
         }
@@ -94,7 +94,7 @@ public class MenuAnimal {
         System.out.println("3 - print all animals");
         System.out.println("4 - find 5 the oldest animals");
         System.out.println("5 - find 5 the youngest animals");
-        System.out.println("6 - find graft animals");
+        System.out.println("6 - find vaccinated animals");
 
     }
 }

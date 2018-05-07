@@ -65,9 +65,9 @@ public class Init {
                         animal.setAge(Integer.valueOf(animalInStore[2]));
 
                         if (animalInStore[3].equals("true]") || animalInStore[3].equals("false]")) {
-                            animal.setGraft(Boolean.valueOf(animalInStore[3].substring(0, animalInStore[3].length() - 1)));
+                            animal.setVaccinate(Boolean.valueOf(animalInStore[3].substring(0, animalInStore[3].length() - 1)));
                         } else {
-                            animal.setGraft(Boolean.valueOf(animalInStore[3]));
+                            animal.setVaccinate(Boolean.valueOf(animalInStore[3]));
 
                         }
                         barn.addAnimal(animal);
