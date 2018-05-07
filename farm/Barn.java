@@ -29,7 +29,6 @@ public class Barn {
     public int initOrSetIdBarn() {
         if (Init.getBarns().size() != 0) {
             return idBarn = Init.getBarns().getLast().getIdBarn() + 1;
-
         } else {
             return idBarn = 1;
         }

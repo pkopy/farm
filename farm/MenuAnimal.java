@@ -8,24 +8,18 @@ import java.util.Scanner;
 public class MenuAnimal {
 
     private Scanner scanner;
-
-
     private Barn barn;
 
     public MenuAnimal() {
         scanner = new Scanner(System.in);
-
-
     }
 
     public void start(int numberOfBarn) throws IOException {
-        if (numberOfBarn < 0 || numberOfBarn > Init.getBarns().size()-1){
+        if (numberOfBarn < 0 || numberOfBarn > Init.getBarns().size() - 1) {
             MenuBarn menuBarn = new MenuBarn();
             menuBarn.start();
-
-        }else {
+        } else {
             barn = Init.getBarns().get(numberOfBarn);
-
         }
 
         String answer;
@@ -48,17 +42,20 @@ public class MenuAnimal {
                 animal.setAge(Integer.valueOf(scanner.nextLine()));
                 System.out.println("Is animal vaccinate? Y/N");
                 animal.setVaccinate(yesNo());
-//                barns = Init.getBarns();
-//                barns.get(numberOfBarn).addAnimal(animal);
                 barn.addAnimal(animal);
                 String nameOfFile = "C:\\Farm\\" + Init.getFarmerName() + "\\" + "barn" + barn.getIdBarn() + ".txt";
                 Utils.saveToFile(nameOfFile, barn.toString());
                 break;
             }
             case "2": {
-
                 System.out.println("Give Id`s animal ");
-                System.out.println(barn.getAnimals().get(Integer.valueOf(scanner.nextLine())).printAnimal());
+                int idAnimal = Integer.valueOf(scanner.nextLine());
+
+                if (barn.getAnimals().size() > 0 || idAnimal < barn.getAnimals().size() - 1) {
+                    System.out.println(barn.getAnimals().get(idAnimal).printAnimal());
+                } else{
+                    System.out.println("You don`t have any animals");
+                }
 
                 break;
             }
