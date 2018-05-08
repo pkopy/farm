@@ -20,6 +20,7 @@ public class MenuAnimal {
             menuBarn.start();
         } else {
             barn = Init.getBarns().get(numberOfBarn);
+            System.out.println("Barn no: " + barn.getIdBarn());
         }
 
         String answer;

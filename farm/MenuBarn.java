@@ -98,7 +98,6 @@ public class MenuBarn {
     }
 
     public void openBarn(int number) {
-        System.out.println("Barn no " + number);
         try {
             menuAnimal.start(number - 1);
         } catch (IOException e) {
